@@ -1052,37 +1052,132 @@ Recommended frontend structure:
 
 ```text
 frontend/
-│
+├── public/
+│   ├── favicon.ico
+│   ├── logo.png
+│   └── robots.txt
 ├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── styles/
 │   ├── components/
+│   │   ├── layout/
+│   │   ├── forms/
+│   │   ├── tables/
+│   │   ├── charts/
+│   │   ├── alerts/
+│   │   └── shared/
 │   ├── pages/
+│   │   ├── auth/
+│   │   ├── dashboard/
+│   │   ├── datasets/
+│   │   ├── bias/
+│   │   ├── models/
+│   │   ├── monitoring/
+│   │   └── governance/
 │   ├── services/
+│   │   ├── api.js
+│   │   ├── auth.service.js
+│   │   ├── datasets.service.js
+│   │   ├── bias.service.js
+│   │   ├── models.service.js
+│   │   ├── monitoring.service.js
+│   │   └── governance.service.js
 │   ├── hooks/
+│   │   ├── useAuth.js
+│   │   ├── useApi.js
+│   │   ├── useDebounce.js
+│   │   └── usePolling.js
+│   ├── context/
+│   │   ├── AuthContext.jsx
+│   │   └── AppContext.jsx
+│   ├── store/
+│   │   ├── auth.store.js
+│   │   └── ui.store.js
 │   ├── utils/
+│   │   ├── constants.js
+│   │   ├── formatters.js
+│   │   ├── validators.js
+│   │   └── token.js
+│   ├── router/
+│   │   └── routes.jsx
 │   ├── App.jsx
 │   ├── main.jsx
-│
-├── public/
+│   └── index.css
+├── .env
+├── package.json
+├── vite.config.js
+└── tailwind.config.js
 ```
 
 ### Folder Purpose
 
-- `components/`
-  - Reusable UI pieces like tables, cards, modals, charts, forms, and alerts.
-- `pages/`
-  - Top-level screens such as Login, Dashboard, Dataset Upload, Bias Report, Model Training, Monitoring, and Governance.
-- `services/`
-  - API client wrappers for calling the backend.
-- `hooks/`
-  - Shared React hooks for auth, data loading, polling, and state management.
-- `utils/`
-  - Helpers for formatting dates, numbers, auth tokens, and API errors.
-- `App.jsx`
-  - Main application shell and routing setup.
-- `main.jsx`
-  - Frontend entry point.
 - `public/`
-  - Static assets like logos and icons.
+  - Static files served directly by Vite, such as icons and the favicon.
+- `assets/`
+  - Design assets, styles, and image resources used by the UI.
+- `components/layout/`
+  - App shell components like navbars, sidebars, and page wrappers.
+- `components/forms/`
+  - Reusable inputs, form groups, upload controls, and submit actions.
+- `components/tables/`
+  - Reusable tables for datasets, models, alerts, and review queue views.
+- `components/charts/`
+  - Fairness charts, metric cards, trend graphs, and summary visualizations.
+- `components/alerts/`
+  - Toasts, banners, status badges, and warning components.
+- `components/shared/`
+  - Generic UI primitives reused across many pages.
+- `pages/auth/`
+  - Login and registration screens.
+- `pages/dashboard/`
+  - Landing view after login with summary cards and navigation.
+- `pages/datasets/`
+  - Dataset upload, dataset listing, and dataset profile views.
+- `pages/bias/`
+  - Bias analysis reports and bias trend views.
+- `pages/models/`
+  - Model training, model details, explainability, and mitigation screens.
+- `pages/monitoring/`
+  - Live prediction monitoring, alert list, and fairness snapshot screens.
+- `pages/governance/`
+  - Governance report, audit logs, review queue, and decision resolution screens.
+- `services/`
+  - API request layer that centralizes backend communication.
+- `hooks/`
+  - Reusable data and state hooks for auth, API loading, and polling.
+- `context/`
+  - React context providers for app-wide state such as auth and UI settings.
+- `store/`
+  - Optional client state management for tokens, session state, and UI preferences.
+- `utils/`
+  - Shared helper functions for formatting, validation, constants, and token handling.
+- `router/`
+  - Central route definitions and page-level navigation mapping.
+- `App.jsx`
+  - Main application shell and layout composition.
+- `main.jsx`
+  - Frontend entry point that mounts the React app.
+- `index.css`
+  - Global styles and Tailwind base layer imports.
+
+### Suggested Frontend Pages
+
+- Login page
+- Register page
+- Dashboard page
+- Dataset upload page
+- Dataset details page
+- Bias report page
+- Model training page
+- Model details page
+- Explainability page
+- Mitigation page
+- Monitoring page
+- Governance report page
+- Review queue page
+- Audit log page
 
 ---
 
