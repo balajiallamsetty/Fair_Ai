@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: fair-ai-guardian-api
+    env: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        scope: service
+        sync: false
+      - key: SECRET_KEY
+        scope: service
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: CORS_ORIGINS
+        value: https://fair-ai-guardian.vercel.app,http://localhost:3000
