@@ -223,7 +223,7 @@ git push origin main
 
 6.2 Update the `CORS_ORIGINS` environment variable to include your Vercel URL:
 ```
-https://fair-ai-guardian.vercel.app,https://your-custom-domain.com
+https://fair-ai-sable.vercel.app,https://your-custom-domain.com
 ```
 
 6.3 The service will automatically restart
@@ -331,7 +331,7 @@ After deployment, save these URLs:
 
 - **Backend API**: `https://fair-ai-zp5c.onrender.com`
 - **Backend API Docs**: `https://fair-ai-zp5c.onrender.com/docs`
-- **Frontend App**: `https://fair-ai-guardian.vercel.app`
+- **Frontend App**: `https://fair-ai-sable.vercel.app`
 - **Render Dashboard**: `https://dashboard.render.com`
 - **Vercel Dashboard**: `https://vercel.com/dashboard`
 
