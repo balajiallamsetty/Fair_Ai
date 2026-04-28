@@ -23,11 +23,28 @@ logger = get_logger(__name__)
 settings = get_settings()
 
 # Parse CORS origins from environment variable
-def get_cors_origins() -> list[str]:
-	"""Get CORS origins from environment variable or use defaults."""
-	cors_env = os.getenv("CORS_ORIGINS", "")
+def get_cors_origins() -> list[str] | str:
+	"""Get CORS origins from environment variable or use defaults.
+	
+	Supports:
+	- Comma-separated list in CORS_ORIGINS env var
+	- Special value "vercel" to allow all Vercel preview deployments
+	- Default development origins
+	"""
+	cors_env = os.getenv("CORS_ORIGINS", "").strip()
+	
 	if cors_env:
-		return [origin.strip() for origin in cors_env.split(",")]
+		# Check for special Vercel mode
+		if cors_env.lower() == "vercel":
+			# Allow all Vercel preview and production URLs
+			logger.info("CORS: Allowing all Vercel deployments (*.vercel.app)")
+			return ["https://*.vercel.app", "http://localhost:3000", "http://localhost:5173"]
+		
+		# Parse comma-separated list
+		origins = [origin.strip() for origin in cors_env.split(",") if origin.strip()]
+		if origins:
+			return origins
+	
 	# Default origins for local development
 	return [
 		"http://127.0.0.1:5173",
