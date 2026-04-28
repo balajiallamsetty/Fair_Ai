@@ -142,7 +142,7 @@ touch .env.production
 
 1.2 Add the backend API URL to `.env.production`:
 ```env
-VITE_API_URL=https://fair-ai-guardian-api.onrender.com
+VITE_API_URL=https://fair-ai-zp5c.onrender.com
 ```
 
 1.3 Update `frontend/src/services/http.ts` to use environment variable:
@@ -202,7 +202,7 @@ git push origin main
 
 4.2 Add the following:
    - **Name**: `VITE_API_URL`
-   - **Value**: `https://fair-ai-guardian-api.onrender.com` (your backend URL)
+   - **Value**: `https://fair-ai-zp5c.onrender.com` (your backend URL)
    - **Environments**: Production, Preview, Development
 
 4.3 Click **"Save"**
@@ -329,8 +329,8 @@ https://fair-ai-guardian.vercel.app,https://your-custom-domain.com
 
 After deployment, save these URLs:
 
-- **Backend API**: `https://fair-ai-guardian-api.onrender.com`
-- **Backend API Docs**: `https://fair-ai-guardian-api.onrender.com/docs`
+- **Backend API**: `https://fair-ai-zp5c.onrender.com`
+- **Backend API Docs**: `https://fair-ai-zp5c.onrender.com/docs`
 - **Frontend App**: `https://fair-ai-guardian.vercel.app`
 - **Render Dashboard**: `https://dashboard.render.com`
 - **Vercel Dashboard**: `https://vercel.com/dashboard`

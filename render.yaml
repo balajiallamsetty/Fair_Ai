@@ -16,3 +16,5 @@ services:
         value: production
       - key: CORS_ORIGINS
         value: https://fair-ai-guardian.vercel.app,http://localhost:3000
+      - key: BACKEND_URL
+        value: https://fair-ai-zp5c.onrender.com
