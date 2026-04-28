@@ -31,6 +31,8 @@ backend/artifacts/
 dist/
 build/
 *.egg-info/
+frontend/dist/
+frontend/node_modules/
 
 # Logs
 *.log
